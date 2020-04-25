@@ -1,0 +1,88 @@
+*{
+    /*border: 1px solid white;*/
+}
+
+@keyframes entrada_login{
+    0%{
+        transform: translateX(-80px)rotateZ(-3deg);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0px)rotateZ(0deg);;
+        opacity: 1;
+    }
+}
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: black;
+    background-image: url('background3_image.jpg');
+    background-size: cover;
+}
+
+
+.clear{
+    clear: both;
+}
+
+.logIn_form{
+    display: block;
+    width: 100%;
+    
+}
+.formLogin{
+
+    display: block;
+    width: 35%;
+    background-color: #0f1f2ed4;
+    margin: 2% auto;
+    padding-bottom: 5px;
+    animation: 1.5s ease 0s 1 entrada_login;
+    border-radius: 8%;
+}
+
+.formLogin *{
+    display: block;
+    width: 70%;
+    margin: 12px 15%;
+    color: #ffffff;
+}
+
+.formLogin h1{
+    text-align: center;
+    background-color: #af3d32;
+    padding: 5px 0px;
+    width: 100%;
+    margin: 0px;
+}
+
+.formLogin button{
+    background-color: #af3d32;
+    font-size: 1.1em;
+    border: 0px;
+    padding: 10px 0px;
+}
+
+
+.formLogin .buttonlog, .btn-outline-success {
+
+   width: 50%;
+   margin: 12px auto;
+}
+
+
+.formLogin .input_login{
+    color: #141414;
+    font-weight: 300;
+    font-size: 1.1em;
+    padding: 4px 2px;
+    margin-bottom: 25px;
+    border-width: 0 0 2px;
+    border-bottom-color: #a54804c7;
+}
+
+.formLogin #olvido_pass{
+    font-size: 1em;
+    text-align: right;
+    text-decoration: underline;
+}
