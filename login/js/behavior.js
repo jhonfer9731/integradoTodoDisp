@@ -1,33 +1,64 @@
 
-window.onload= () => {
+window.onload = () => {
 
     const loginForm = document.querySelector('.logIn_form');
-    const registerForm = document.querySelector(".signUp_form");
+    const registerFormdiv = document.querySelector(".signUp_form");
     const reg_btn = document.querySelector("#reg_btn");
     const login_btn = document.querySelector("#login_btn");
     const login_error = document.querySelector(".problema_login");
-    const contrasenas = [document.getElementsByName('contrasena'),document.getElementsByName('contrasenax2')];
-    
+    const contrasenas = [document.getElementsByName('contrasena')[0], document.getElementsByName('contrasenax2')[0]];
+    const completar_reg = document.getElementsByName('completar_reg')[0];
+    const registerForm = document.querySelector("#form-registro");
 
-    console.log(contrasenas);
-    alert("espere");
-
-    if(!login_error)
-    {
+    if (login_error !== null) {
         
-    }
-   
+        if (login_error.innerHTML !== null) {
+            login_error.classList.add('hayerror_login');
+        }
 
-    login_btn.addEventListener("click",(event)=>{
+    }
+
+    /*function validateReg(){
+
+        if(contrasenas[0].value === contrasenas[1].value)
+        {
+            return true;
+        }else{
+            alert("Contraseñas no coinciden");
+            return false;
+        }
+
+    }*/
+
+    /*completar_reg.addEventListener('click',(event)=>{
+        //event.disabled = true;  
         event.preventDefault();
-        loginForm.style ="display: block;";
-        registerForm.style ="display: none;";
+        console.log(contrasenas);
+        if(contrasenas[0].innerText === contrasenas[1].innerText)
+        {
+            event.submit();
+        }else{
+            alert("Contraseñas no coinciden");
+        }
+    });*/
+
+
+
+
+
+
+
+
+
+    login_btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        loginForm.style = "display: block;";
+        registerFormdiv.style = "display: none;";
     });
 
-    reg_btn.addEventListener("click",(event)=>
-    {
+    reg_btn.addEventListener("click", (event) => {
         event.preventDefault();
-        loginForm.style ="display: none;";
-        registerForm.style ="display: block;";
+        loginForm.style = "display: none;";
+        registerFormdiv.style = "display: block;";
     });
 }

@@ -27,6 +27,9 @@ session_start();
 </body>
 </html>
 
+
 <?php
+
+    $_SESSION["mensaje"] = null;
 
 

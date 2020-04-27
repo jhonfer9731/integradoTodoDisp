@@ -41,13 +41,14 @@ if(isset($_GET["email"]) && !empty($_GET["email"]) AND isset($_GET["hash"]) && !
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style1.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/validacion.js"></script>
 </head>
 <body>
     <div class="logIn_form" >
-        <form action="actualizar_contra.php" method="POST" class =" formLogin">
+        <form action="actualizar_contra.php" onsubmit="return validateRegCorreo()" method="POST" class =" formLogin">
             <h1> Escoje una nueva contraseña </h1>
             <span>Nueva contraseña: </span>
-            <input type="password" name ="contrasena_c" class= "input_login" autocomplete="off"></input>
+            <input type="password" name ="contrasena_c" class= "input_login" autocomplete="off" required></input>
             <span>Confirmar contraseña: </span>
             <input  type="password" name ="contrasena_c2" class= "input_login" autocomplete="off"></input>
             <button type="submit" name="ingresar" class="btn btn-outline-success" value="true" >Aplicar</button>

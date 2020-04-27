@@ -1,0 +1,37 @@
+
+.container-iot h3{
+    margin: 20px 20px;
+    min-height: 8rem;
+}
+
+.iots-list{
+    margin: 10px 4%;
+    list-style-type: circle;
+    
+}
+
+.iots-item{ 
+    padding-left: 10px;
+    width: 90%;
+    padding-bottom: 20px;
+}
+.iots-title{
+
+    float: left;
+    width: fit-content;
+    margin-right: 20px;
+}
+.iots-btn{
+    float: left;
+    width: fit-content;
+}
+
+.iots-btn *{
+    font-size: 1.4rem;
+    margin-right: 20px;
+    transition: 1s ease;
+}
+
+.clear{
+    clear: both;
+}

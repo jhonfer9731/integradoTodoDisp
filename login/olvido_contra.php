@@ -31,7 +31,7 @@ require "conexion_db.php";
         <form action="olvido_contra.php" method="POST" class =" formLogin">
             <h1> Recuperación de contraseña </h1>
             <span>Ingrese su correo: </span>
-            <input type="email" name ="correo" class= "input_login"></input>
+            <input type="email" name ="correo" class= "input_login" required></input>
             <button type="submit" name="ingresar" class="btn btn-outline-success" value="true">Enviar</button>
             <span> El enlace sera enviado a su correo para restablecer su contraseña </span>
             <div class="clear"></div>

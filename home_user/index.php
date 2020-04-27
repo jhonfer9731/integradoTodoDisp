@@ -19,24 +19,7 @@ require "../login/cerrarsesion.php";
 
 <body>
     <div class="img_gradient">
-        <div class="barraNavegacion">
-            <nav>
-                <ul class="lista-navegacion">
-                    <li class="item-navegacion">Inicio</li>
-                    <li class="item-navegacion">Tus listas</li>
-                    <li class="item-navegacion" id="cerrar-sesion">Cerrar Sesión</li>
-                </ul>
-            </nav>
-        </div>
-        <div class="msj-bienvenida">
-            <div class="info-iniuser">
-                <?php if(isset($_SESSION["mensaje"])){
-                echo "<p class=".'nombre-user'."> Hola {$_SESSION["nombre"]} </p>";
-                echo "<p class=".'mensaje-user'.">{$_SESSION["mensaje"]} </p>";
-                }?>
-            </div>
-            <h1> Bienvenido </h1>
-        </div>
+        <?php require "templates/navigation_bar.php"; ?>
         <header>
             <h1>Lista de tareas</h1>
         </header>

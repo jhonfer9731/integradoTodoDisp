@@ -57,6 +57,12 @@ body{
     font-weight: 600;
     transition: all ease-in 0.2s;
 }
+.item-navegacion a{
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    padding: inherit;
+}
 
 .item-navegacion:hover{
     background-color: #ff0606;

@@ -20,9 +20,6 @@ cerrarSesion.addEventListener('click', cerrar_sesion);
 //functions area
 
 
-
-var count = 0;
-
 const cerrarS = {
     finish: true,
     logged_in : false
