@@ -1,0 +1,27 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "aplicacion web dinamica IoT Arduino",
+  "main": "serWSockets/index.js",
+  "scripts": {
+    "start": "node serWSockets/socket_server.js",
+    "dev": "nodemon serWSockets/socket_server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ".git"
+  },
+  "keywords": [
+    "NodeJs",
+    "PHP",
+    "IoT",
+    "Arduino"
+  ],
+  "author": "Jhon F Benavides",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "socket.io": "^2.3.0"
+  }
+}

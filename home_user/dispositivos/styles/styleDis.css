@@ -1,5 +1,5 @@
 
-.container-iot h3{
+.container-iot #dispositivos{
     margin: 20px 20px;
     min-height: 8rem;
 }
@@ -14,6 +14,7 @@
     padding-left: 10px;
     width: 90%;
     padding-bottom: 20px;
+    align-items: center;
 }
 .iots-title{
 
@@ -29,7 +30,14 @@
 .iots-btn *{
     font-size: 1.4rem;
     margin-right: 20px;
-    transition: 1s ease;
+    transition: 0.2s ease;
+}
+
+.iots-monitor{
+    float:left;
+    margin-left: 20px;
+    width: fit-content;
+
 }
 
 .clear{

@@ -1,7 +1,8 @@
 const cerrarSesion = document.querySelector('#cerrar-sesion');
 const encenderBtn = document.querySelector(".btn-success");
 const apagarBtn = document.querySelector(".btn-danger");
-
+const monitorIot = document.querySelector(".iots-monitor");
+const wSocket = io("http://localhost:5000/");
 
 console.log(apagarBtn);
 const cerrarS = {
@@ -41,10 +42,27 @@ function onDevice(event){
     enviarSenalDisp(senal);
 }
 
+wSocket.on('arduinoOutput', (output) => {
+    monitorIot.innerText = JSON.parse(output).valor;
+});
+
 
 function enviarSenalDisp(senal){
 
     const url =  "http://localhost/webCourse/cursoPHPyoutube/todolist/IoTcon/";
+
+    //webSockets.io
+
+    wSocket.emit('led_inicial',JSON.stringify(senal));
+    
+    /*wSocket.on('led_inicial', (mensaje) => {
+        console.log(mensaje);
+    });*/
+
+
+
+    //peticion post al servidor PHP
+
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(senal),
@@ -53,7 +71,7 @@ function enviarSenalDisp(senal){
         }
     }).then(response => response.json()).then(
         res => {
-            console.log(res);
+            //console.log(res);
         }
     );
 }
@@ -66,6 +84,7 @@ function enviarSenalDisp(senal){
 function cerrar_sesion(event)
 {
     alert("Hasta Pronto");
+    wSocket.emit('end');
     const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/login/cerrarsesion.php";
     fetch(url,{
         method: 'POST',

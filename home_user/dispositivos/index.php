@@ -24,7 +24,7 @@ $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
     <div class="img_gradient">
         <?php require "../templates/navigation_bar.php";?>
         <div class=container-iot>
-            <h3>Dispositivos</h3>
+            <h3 id="dispositivos">Dispositivos</h3>
             <ul class="iots-list">
                 <li class="iots-item">
                     <h2 class="iots-title">Led Inicial</h2>
@@ -32,10 +32,18 @@ $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
                         <button class="btn btn-success">Encender</button>
                         <button class="btn btn-danger">Apagar</button>
                     </div>
+                    <h3 class="iots-monitor"></h3>
                     <div class="clear"></div>
                 </li>
             </ul>
         </div>
     </div>
+    <?php  
+        $path = dirname(__FILE__,3);
+        $realpath = $path.'/';
+        $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
+     ?>
+<script src="<?php echo ''.$realpath.'node_modules/socket.io-client/dist/socket.io.js'?>"></script>
+<script type="text/javascript" src="./js/wSockets.js"></script>
 <script type="text/javascript" src="./js/dispositivosApp.js"></script>
 </body>
