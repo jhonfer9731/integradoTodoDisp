@@ -17,14 +17,17 @@ const socketIo = Io(server);
 
 socketIo.on('connection',(socket)=>{
     console.log('a user connected', socket.id);
-    socket.on('led_inicial',(senal) => {
+    // la emite el cliente en WebApp
+    socket.on('led_inicial',(senal) => { // se activa cuando el usuario en la pag web emite una senal con nombre led_inicial
         console.log('mensaje: '+senal);
-        socketIo.emit('led_inicial',senal);
+        socketIo.broadcast.emit('led_inicial',senal);
     });
-    socket.on('disconnect', ()=>{
+    socket.on('disconnect', ()=>{ // la senal se activa cuando un usuario se desconecta
         console.log("user disconnected");
     });
-    socket.on('arduinoOutput',(senal) => {
+
+    // La emite el arduino al cliente
+    socket.on('arduinoOutput',(senal) => { // 
         console.log('mensaje: '+senal);
         socketIo.emit('arduinoOutput',senal);
     });     
