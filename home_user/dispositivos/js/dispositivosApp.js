@@ -2,24 +2,76 @@ const cerrarSesion = document.querySelector('#cerrar-sesion');
 const encenderBtn = document.querySelector(".btn-success");
 const apagarBtn = document.querySelector(".btn-danger");
 const monitorIot = document.querySelector(".iots-monitor");
+const cvContainer = document.querySelector(".canva-container");
 const wSocket = io("http://localhost:5000/");
+const canvas = document.createElement('canvas');
 
-console.log(apagarBtn);
 const cerrarS = {
     finish: true,
-    logged_in : false
+    logged_in: false
 };
 
+const t_inicial = new Date();
+
+Chart.defaults.global.defaultFontColor = "whitesmoke";
+Chart.defaults.global.elements.point.radius = 1;
+Chart.defaults.global.defaultFontSize = 20;
+
+canvas.id = "#sensor1";
+canvas.classList.add("sensor");
+cvContainer.appendChild(canvas);
+canvas.getContext('2d');
+const chart_element = new Chart(canvas, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Temperatura Habitación',
+            data: [],
+            borderColor: '#d0492d',
+            pointBackgroundColor: '#ff826e',
+            pointBorderColor: "fffbfb",
+            fill: false
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'tiempo [s]',
+                },
+                ticks:{ fontSize: 14}
+            }],
+            yAxes: [{
+                ticks:
+                {
+                    callback: function(value,index, values){
+                        return value + '°C';
+                    },
+                    fontSize: 18,
+                    min: 17,
+                    max:33
+                }
+            }],
+        },
+        label: {
+            fontSize: 10
+        }
+    }
+});
+canvas.style.backgroundColor = '#1b2a37bb';
 
 
 
-apagarBtn.addEventListener('click',offDevice);
-encenderBtn.addEventListener('click',onDevice);
+
+apagarBtn.addEventListener('click', offDevice);
+encenderBtn.addEventListener('click', onDevice);
 cerrarSesion.addEventListener('click', cerrar_sesion);
 
 
 
-function offDevice(event){
+function offDevice(event) {
     apagarBtn.disabled = true;
     encenderBtn.disabled = false;
     console.log("apagando");
@@ -31,7 +83,7 @@ function offDevice(event){
 
 }
 
-function onDevice(event){
+function onDevice(event) {
     apagarBtn.disabled = false;
     encenderBtn.disabled = true;
     console.log("encendiendo");
@@ -42,19 +94,47 @@ function onDevice(event){
     enviarSenalDisp(senal);
 }
 
+var prev_inputs = [];
+var ban_filter = true;
+
 wSocket.on('arduinoOutput', (output) => {
-    monitorIot.innerText = JSON.parse(output).valor;
+    if (JSON.parse(output).outputs[0].valor !== undefined) {
+        var output_valor = JSON.parse(output).outputs[0].valor;
+        if (ban_filter) {
+            ban_filter = false;
+            for (var i = 0; i < 5; i++) prev_inputs.push(output_valor);
+        } else {
+            prev_inputs.push(output_valor);
+            prev_inputs.shift();
+        }
+        var t_actual = new Date();
+        var tiempo = t_actual - t_inicial;
+        //console.log(prev_inputs);
+        const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+        const mean = arrAvg(prev_inputs);
+        addDataChart(chart_element, (tiempo / 1000).toFixed(0), mean);
+    }
 });
 
 
-function enviarSenalDisp(senal){
+// funcion que agrega los datos al grafico a medida que vayan llegando a la app
+function addDataChart(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
 
-    const url =  "http://localhost/webCourse/cursoPHPyoutube/todolist/IoTcon/";
+
+function enviarSenalDisp(senal) {
+
+    const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/IoTcon/";
 
     //webSockets.io
 
-    wSocket.emit('led_inicial',JSON.stringify(senal));
-    
+    wSocket.emit('led_inicial', JSON.stringify(senal));
+
     /*wSocket.on('led_inicial', (mensaje) => {
         console.log(mensaje);
     });*/
@@ -66,8 +146,8 @@ function enviarSenalDisp(senal){
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(senal),
-        headers:{
-            'Content-Type':'application/json'
+        headers: {
+            'Content-Type': 'application/json'
         }
     }).then(response => response.json()).then(
         res => {
@@ -81,23 +161,22 @@ function enviarSenalDisp(senal){
 
 
 
-function cerrar_sesion(event)
-{
+function cerrar_sesion(event) {
     alert("Hasta Pronto");
     wSocket.emit('end');
     const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/login/cerrarsesion.php";
-    fetch(url,{
+    fetch(url, {
         method: 'POST',
         body: JSON.stringify(cerrarS),
-        headers:{
-            'Content-Type':'application/json'
+        headers: {
+            'Content-Type': 'application/json'
         }
     }).then(response => response.json()).then(
         res => {
             console.log(res.location);
             document.location.href = res.location;
         }
-    );   
+    );
 }
 
 

@@ -18,21 +18,31 @@ $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/styleDis.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </head>
 
 <body>
     <div class="img_gradient">
         <?php require "../templates/navigation_bar.php";?>
         <div class=container-iot>
-            <h3 id="dispositivos">Dispositivos</h3>
+            <h2 id="dispositivos">Dispositivos</h3>
             <ul class="iots-list">
                 <li class="iots-item">
-                    <h2 class="iots-title">Led Inicial</h2>
+                    <h3 class="iots-title">Led Inicial</h2>
                     <div class="iots-btn">
                         <button class="btn btn-success">Encender</button>
                         <button class="btn btn-danger">Apagar</button>
                     </div>
-                    <h3 class="iots-monitor"></h3>
+                    <!-- <h3 class="iots-monitor"></h3> -->
+                    <div class="clear"></div>
+                </li>
+            </ul>
+            <h2 class="iot-title"> Sensores Disponibles Arduino </h3>
+            <ul class="sensor-list">
+                <li class="sensor-item">
+                    <h3 class="sensor-title">Temperatura:</h3>
+                    <div class = "canva-container">
+                    </div>
                     <div class="clear"></div>
                 </li>
             </ul>
