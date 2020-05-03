@@ -3,7 +3,7 @@ const encenderBtn = document.querySelector(".btn-success");
 const apagarBtn = document.querySelector(".btn-danger");
 const monitorIot = document.querySelector(".iots-monitor");
 const cvContainer = document.querySelector(".canva-container");
-const wSocket = io("http://localhost:5000/");
+const wSocket = io("https://serwsockets.herokuapp.com/");
 const canvas = document.createElement('canvas');
 
 const cerrarS = {
@@ -129,7 +129,7 @@ function addDataChart(chart, label, data) {
 
 function enviarSenalDisp(senal) {
 
-    const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/IoTcon/";
+    //const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/IoTcon/";
 
     //webSockets.io
 
@@ -143,7 +143,7 @@ function enviarSenalDisp(senal) {
 
     //peticion post al servidor PHP
 
-    fetch(url, {
+    /*fetch(url, {
         method: 'POST',
         body: JSON.stringify(senal),
         headers: {
@@ -153,7 +153,7 @@ function enviarSenalDisp(senal) {
         res => {
             //console.log(res);
         }
-    );
+    );*/
 }
 
 
@@ -161,6 +161,7 @@ function enviarSenalDisp(senal) {
 function cerrar_sesion(event) {
     alert("Hasta Pronto");
     wSocket.emit('end');
+    //modificar con direccion del servidor
     const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/login/cerrarsesion.php";
     fetch(url, {
         method: 'POST',
