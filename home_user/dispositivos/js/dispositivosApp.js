@@ -158,9 +158,6 @@ function enviarSenalDisp(senal) {
 
 
 
-
-
-
 function cerrar_sesion(event) {
     alert("Hasta Pronto");
     wSocket.emit('end');

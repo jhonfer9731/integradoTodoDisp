@@ -20,5 +20,5 @@ $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
                 echo "<p class=".'mensaje-user'.">{$_SESSION["mensaje"]} </p>";
                 }?>
             </div>
-            <h1> Bienvenido </h1>
+            <h1 id = "t_bienvenido"> Bienvenido </h1>
         </div>

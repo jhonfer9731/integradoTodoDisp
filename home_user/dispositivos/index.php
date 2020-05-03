@@ -48,7 +48,9 @@ $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
             </ul>
         </div>
     </div>
-    <?php  
+
+    <?php
+        require "../templates/footer.php";  
         $path = dirname(__FILE__,3);
         $realpath = $path.'/';
         $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);

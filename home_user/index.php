@@ -43,8 +43,6 @@ require "../login/cerrarsesion.php";
             </ul>
         </div>
     </div>
-    <footer>Diseñado por Jhon F Benavides</footer>
+    <?php require "templates/footer.php"; ?>
     <script type="text/javascript" src="./js/app.js"></script>
 </body>
-
-</html>
