@@ -60,7 +60,7 @@ const chart_element = new Chart(canvas, {
         }
     }
 });
-canvas.style.backgroundColor = '#1b2a37bb';
+canvas.style.backgroundColor = '#1b2a37bf';
 
 
 
@@ -161,10 +161,11 @@ function enviarSenalDisp(senal) {
 
 
 
-function cerrar_sesion(event) {
+async function cerrar_sesion(event) {
     alert("Hasta Pronto");
     wSocket.emit('end');
-    const url = "http://localhost/webCourse/cursoPHPyoutube/todolist/login/cerrarsesion.php";
+    // cambiar cuando se cambie de ubicacion
+    const url = "http://localhost/integradoTodoDisp/login/cerrarsesion.php";
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(cerrarS),
@@ -176,7 +177,7 @@ function cerrar_sesion(event) {
             console.log(res.location);
             document.location.href = res.location;
         }
-    );
+    ).catch((err) => {console.log(err)});
 }
 
 

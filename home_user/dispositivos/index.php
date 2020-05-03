@@ -51,7 +51,10 @@ $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
     <?php  
         $path = dirname(__FILE__,3);
         $realpath = $path.'/';
+        $windows = str_replace('C:\xampp\htdocs','http://localhost',$realpath);
         $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
+        // en windows 
+        $realpath = $windows;
      ?>
 <script src="<?php echo ''.$realpath.'node_modules/socket.io-client/dist/socket.io.js'?>"></script>
 <script type="text/javascript" src="./js/wSockets.js"></script>

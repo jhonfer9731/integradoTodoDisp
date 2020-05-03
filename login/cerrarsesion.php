@@ -10,8 +10,8 @@ $recibido["recibido"] = true;
 $recibido["ok"] = 1;
 $path = dirname(__FILE__);
 $realpath = $path.'/';
-$realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
-
+//$realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
+require "cabeceras.php";
 if($_SERVER["REQUEST_METHOD"] == 'POST')
 {   
     if(isset($_POST["finish"]) && $_POST["finish"] == true)

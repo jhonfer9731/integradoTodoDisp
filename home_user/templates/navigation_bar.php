@@ -1,7 +1,10 @@
 <?php
 $path = dirname(__FILE__,2);
 $realpath = $path.'/';
+//echo $realpath;
+$windowsPath = str_replace('C:\xampp\htdocs','http://localhost',$realpath);
 $realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
+$realpath = $windowsPath;
 ?>
         <div class="barraNavegacion">
             <nav>

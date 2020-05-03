@@ -25,7 +25,7 @@ $peticion = "SELECT * FROM cuentas WHERE email='{$correo}'";
 $result = $conexion->query($peticion) or die($conexion->error);
 $linkpath = 'http://localhost/jhonfer9731-cursoPHPyoutube/todolist/login';
 $linkpathlinux = 'http://localhost/webCourse/cursoPHPyoutube/todolist/login';
-
+$linkpath2 = 'http://localhost/integradoTodoDisp/todolist/login';
 if( $result->num_rows > 0 ) // si es mayor a 0 encontro una respuesta, el email existe, tiene que escojer otro emailerrr
 {
      $_SESSION["mensaje"] = "Usuario con este email ya existe";
@@ -44,7 +44,7 @@ if( $result->num_rows > 0 ) // si es mayor a 0 encontro una respuesta, el email 
         Hello '.$nombre. ',
         Gracias por registrarte,
         para completar tu registro has click en el link de confirmacion con el fin de activar tu cuenta: 
-        '.$linkpathlinux.'/verificacion.php?email='.$correo.'&hash='.$hash;
+        '.$linkpath2.'/verificacion.php?email='.$correo.'&hash='.$hash;
 
         mail($to,$subject,$cuerpo_msj); // manda el correo electronico al cliente
         echo "<pre style = ".'"color: white;"'.">",var_dump($to),var_dump($cuerpo_msj),"</pre>";
