@@ -43,3 +43,61 @@ Open repository: /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist
 > git for-each-ref --format %(refname) %(objectname) --sort -committerdate
 > git remote --verbose
 > git config --get commit.template
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/home_user/js/app.js
+> git status -z -u
+> git cat-file -s fee12fa5b3e3d50c40b635b61e986c71394f0859
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/home_user/js/app.js
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git cat-file -s fee12fa5b3e3d50c40b635b61e986c71394f0859
+> git show :home_user/js/app.js
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :home_user/js/app.js
+> git config --get commit.template
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/home_user/js/app.js
+> git status -z -u
+> git cat-file -s fee12fa5b3e3d50c40b635b61e986c71394f0859
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/home_user/js/app.js
+> git cat-file -s fee12fa5b3e3d50c40b635b61e986c71394f0859
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/home_user/js/app.js
+> git cat-file -s fee12fa5b3e3d50c40b635b61e986c71394f0859
+> git show :app.yeml
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/app.yeml
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :app.yaml
+> git ls-files --stage -- /opt/lampp/htdocs/webCourse/cursoPHPyoutube/todolist/app.yaml
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
