@@ -29,7 +29,7 @@ const cerrarS = {
 function cerrar_sesion(event)
 {
     alert("Hasta Pronto");
-    const url = "../login/cerrarsesion.php";
+    const url = "/login/cerrarsesion.php";
     fetch(url,{
         method: 'POST',
         body: JSON.stringify(cerrarS),

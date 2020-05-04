@@ -10,7 +10,7 @@ $recibido["recibido"] = true;
 $recibido["ok"] = 1;
 $path = dirname(__FILE__);
 $realpath = $path.'/';
-$realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath);
+$realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath); // va a localhost/login
 
 if($_SERVER["REQUEST_METHOD"] == 'POST')
 {   

@@ -2,9 +2,14 @@
 
 $correo = $conexion->escape_string($_POST["correo"]);
 
-$linkpath = 'http://localhost/jhonfer9731-cursoPHPyoutube/todolist/login';
+$path = dirname(__FILE__);
+$realpath = $path.'/';
+$realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath); // va a localhost/login
+
+$linkpath = 'http://localhost/jhonfer9731-cursoPHPyoutube/todolist/login'; // va a local host login
 $linkpathlinux = 'http://localhost/webCourse/cursoPHPyoutube/todolist/login';
 
+$linkpathlinux = $realpath;
 
 $peticion = "SELECT * FROM cuentas WHERE email ='{$correo}'";
 
@@ -29,7 +34,7 @@ if($resultado->num_rows == 0)
     Hello '.$nombre. ',
     
     Para restablecer tu contraseña has click en el link de confirmacion con el fin de establecer una nueva: 
-    '.$linkpathlinux.'/cambiarcontra.php?email='.$correo.'&hash='.$hash;
+    '.$linkpathlinux.'cambiarcontra.php?email='.$correo.'&hash='.$hash;
     mail($to,$subject,$body);
     header("location: success.php");
 }

@@ -23,8 +23,15 @@ $hash = $conexion->escape_string( md5(rand(1,1000))); // calcula un numero unico
 
 $peticion = "SELECT * FROM cuentas WHERE email='{$correo}'";
 $result = $conexion->query($peticion) or die($conexion->error);
-$linkpath = 'http://localhost/jhonfer9731-cursoPHPyoutube/todolist/login';
+
+$path = dirname(__FILE__);
+$realpath = $path.'/';
+$realpath= str_replace('/opt/lampp/htdocs','http://localhost',$realpath); // va a localhost/login
+
+$linkpath = 'http://localhost/jhonfer9731-cursoPHPyoutube/todolist/login';  // va a login 
 $linkpathlinux = 'http://localhost/webCourse/cursoPHPyoutube/todolist/login';
+
+$linkpathlinux = $realpath;
 
 if( $result->num_rows > 0 ) // si es mayor a 0 encontro una respuesta, el email existe, tiene que escojer otro emailerrr
 {
@@ -44,7 +51,7 @@ if( $result->num_rows > 0 ) // si es mayor a 0 encontro una respuesta, el email 
         Hello '.$nombre. ',
         Gracias por registrarte,
         para completar tu registro has click en el link de confirmacion con el fin de activar tu cuenta: 
-        '.$linkpathlinux.'/verificacion.php?email='.$correo.'&hash='.$hash;
+        '.$linkpathlinux.'verificacion.php?email='.$correo.'&hash='.$hash;
 
         mail($to,$subject,$cuerpo_msj); // manda el correo electronico al cliente
         echo "<pre style = ".'"color: white;"'.">",var_dump($to),var_dump($cuerpo_msj),"</pre>";
